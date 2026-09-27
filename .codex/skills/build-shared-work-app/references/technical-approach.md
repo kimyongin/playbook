@@ -8,7 +8,7 @@
 | 인증·저장·권한 | Supabase Auth·Postgres·RLS, 필요한 RPC |
 | 서버 처리·업무용 MCP | Deno 기반 Supabase Edge Functions |
 | 검사 | Vitest·DB/서버 계약 검사·Playwright·실제 에이전트 클라이언트 |
-| 배포 | GitHub Actions, 정적 웹 호스팅, Supabase DB·함수 배포 |
+| 배포 | GitHub Actions로 GitHub Pages에 웹 배포, Supabase DB·Edge Functions 배포 |
 
 초기 기준은 Node.js 22, React 19, Vite 8, Tailwind 4, Deno 2다. 구현 시 지원과 호환성을 확인해 버전을 선택하고 기록한다. 기존 프로젝트와 사용자의 선택에 맞춰 조정한다.
 
@@ -41,7 +41,7 @@ MCP 도구는 조회·상태 변경처럼 의미 있는 업무 동작을 제공�
 
 ## 배포와 실제 사용
 
-배포할 웹·DB 변경·함수·MCP·로그인 주소가 같은 대상 환경을 가리키는지 확인한다. 기존 서비스는 호환성과 복구를 고려해 적용 순서를 정한다. 배포 범위와 결과는 티켓으로 추적한다.
+웹은 GitHub Pages의 정적 파일로 배포하고 서버 함수와 MCP는 Supabase에서 운영한다. 웹 앱의 배포 경로에 맞춰 Vite의 자산 경로와 화면 이동을 설정하고, 실제 Pages 주소를 로그인 리다이렉트 설정에 반영한다. 웹·DB 변경·함수·MCP가 같은 대상 환경을 가리키는지 확인한다. 기존 서비스는 호환성과 복구를 고려해 적용 순서를 정한다. 배포 범위와 결과는 티켓으로 추적한다.
 
 완료 근거는 대표 업무에 맞춰 확보한다.
 
